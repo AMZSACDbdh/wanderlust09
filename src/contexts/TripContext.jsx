@@ -1,6 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 
-// Create context
 const TripContext = createContext()
 
 // Initial state
@@ -76,7 +75,7 @@ function tripReducer(state, action) {
         savedTrips: state.savedTrips.filter(trip => trip.id !== action.payload),
       }
     case ActionTypes.ADD_TO_SEARCH_HISTORY:
-      // Prevent duplicates in search history
+    
       if (state.searchHistory.some(item => item.query === action.payload.query)) {
         return state
       }
@@ -100,7 +99,7 @@ function tripReducer(state, action) {
   }
 }
 
-// Provider component
+
 export function TripProvider({ children }) {
   const [state, dispatch] = useReducer(tripReducer, initialState)
 
@@ -118,12 +117,12 @@ export function TripProvider({ children }) {
     }
   }, [])
 
-  // Save trips to localStorage whenever they change
+  // Save trips to localStorage 
   useEffect(() => {
     localStorage.setItem('savedTrips', JSON.stringify(state.savedTrips))
   }, [state.savedTrips])
 
-  // Actions
+  
   const setSelectedDestination = (destination) => {
     dispatch({
       type: ActionTypes.SET_SELECTED_DESTINATION,
