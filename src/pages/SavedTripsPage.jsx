@@ -9,7 +9,7 @@ function SavedTripsPage() {
   const { savedTrips, removeTrip } = useTrip()
   const [showConfirmDelete, setShowConfirmDelete] = useState(null)
   
-  // Format date for display
+  // Format date 
   const formatDate = (dateString) => {
     if (!dateString) return 'Not specified'
     
