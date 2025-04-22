@@ -33,4 +33,4 @@ Travel Planner is a clean and intuitive web app that helps users organize their 
    git clone https://github.com/AMZSACDbdh/wanderlust09.git
    cd wanderlust09
 2. Npm install
-   npm run dev
+3. npm run dev
