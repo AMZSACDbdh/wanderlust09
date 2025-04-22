@@ -7,7 +7,6 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
   
-  // Handle scroll effect for transparent/solid header
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -17,7 +16,7 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   
-  // Close mobile menu when route changes
+  
   useEffect(() => {
     setIsMenuOpen(false)
   }, [location])
@@ -26,8 +25,7 @@ function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
-  
-  // Determine if we're on the homepage to show transparent header
+
   const isHomePage = location.pathname === '/'
   const headerClass = isHomePage && !isScrolled && !isMenuOpen
     ? 'bg-transparent text-white'
